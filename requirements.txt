@@ -1,2 +1,4 @@
 pytest
+pytest-mypy
+flake8
 mypy
