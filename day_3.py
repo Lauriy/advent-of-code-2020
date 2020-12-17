@@ -1,9 +1,10 @@
 from functools import reduce
+from typing import List
 
 
-def _parse_matrix(grid: str) -> list[list]:
+def _parse_matrix(grid: str) -> List[list]:
     lines = grid.split()
-    matrix = []
+    matrix: List[list] = []
     line_counter = 0
     for line in lines:
         symbols = list(line)
@@ -37,7 +38,7 @@ def solve_first(grid: str) -> int:
     return tree_counter
 
 
-def solve_second(grid: str, slopes: list[tuple]) -> int:
+def solve_second(grid: str, slopes: List[tuple]) -> int:
     matrix = _parse_matrix(grid)
     track_width = len(matrix[0])
     tree_counts = []

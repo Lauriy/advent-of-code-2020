@@ -1,4 +1,7 @@
-def _parse_single_string(boarding_pass: str) -> (int, int):
+from typing import Tuple
+
+
+def _parse_single_string(boarding_pass: str) -> Tuple[int, int]:
     start = 0
     end = 127
     for char in boarding_pass[:7]:

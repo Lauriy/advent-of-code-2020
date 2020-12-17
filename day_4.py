@@ -48,7 +48,7 @@ class Passport:
         return True
 
 
-def solve_both(file_name: str) -> (int, int):
+def solve_both(file_name: str) -> typing.Tuple[int, int]:
     with open(file_name, 'r') as f:
         passport_data = f.readlines()
     passports = []
@@ -63,8 +63,9 @@ def solve_both(file_name: str) -> (int, int):
         for item in line_data:
             key_value = item.strip().split(':')
             if key_value[0] in ('byr', 'iyr', 'eyr', 'cid'):
-                key_value[1] = int(key_value[1])
-            setattr(passport, key_value[0], key_value[1])
+                setattr(passport, key_value[0], int(key_value[1]))
+            else:
+                setattr(passport, key_value[0], key_value[1])
 
     valid_count = 0
     valid_2_count = 0
